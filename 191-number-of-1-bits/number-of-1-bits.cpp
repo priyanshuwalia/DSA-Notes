@@ -1,11 +1,16 @@
 class Solution {
+    
 public:
-    int hammingWeight(int n) {
-        int res = 0;
-        while(n>0) {
-            res+=n%2;
-            n= n>>1;
-        };
-        return res;
+// brian kernighan's algorithm
+    int countSetBits(int n){
+        int count =0;
+        while(n){
+            n= n&(n-1);
+            count++;
+        }
+        return count;
+    }
+    int hammingWeight(int n) { 
+        return countSetBits(n);
     }
 };
